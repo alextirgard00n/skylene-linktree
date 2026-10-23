@@ -174,6 +174,12 @@ body {
     object-fit: contain;
 }
 
+/* Stream icon runs a bit larger, like the myurls thumbnail (just under its size) */
+.icon-box > img.icon-lg {
+    width: 52px;
+    height: 52px;
+}
+
 /* ---------- Phones ---------- */
 
 @media (max-width: 550px) {
