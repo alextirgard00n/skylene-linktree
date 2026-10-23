@@ -4,7 +4,7 @@ Link page for **Skylene**, heavy melodic music from Honolulu, Hawaii.
 One page with the band's video, streaming links, merch, socials and shows.
 Plain HTML and CSS, no build step, hosted on GitHub Pages.
 
-**Live site:** skylenehi.com
+**Live site:** [skylenehi.com](https://skylenehi.com)
 
 ## What's on the page
 
