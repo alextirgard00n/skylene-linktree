@@ -17,7 +17,7 @@ body {
 }
 
 /*
- * Background — same technique as myurls.co/skylenehi:
+ * Background, same technique as myurls.co/skylenehi:
  * the wrapper is at least one screen tall and grows with the content.
  * A blurred copy of the artwork is stretched across the wrapper's FULL height
  * (not fixed to the viewport), so it scrolls together with the page.
@@ -28,10 +28,7 @@ body {
     position: relative;
     overflow: hidden;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding-bottom: 50px; /* same empty strip myurls keeps under the content */
     background-color: #000;
 }
 
@@ -42,15 +39,22 @@ body {
     background-image: url("media/Background CD 3000.jpg");
     background-size: cover;
     background-position: 50% 50%;
-    background-repeat: repeat;
     filter: blur(16px);
     opacity: 0.63;
     transform: scale(1.1);
 }
 
-.profile-container {
+/* Content area fills the screen minus that strip and centers vertically. */
+.content {
     position: relative;
     z-index: 1;
+    min-height: calc(100vh - 50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-container {
     width: 100%;
     max-width: 640px;
     display: flex;
@@ -58,9 +62,10 @@ body {
     padding: 40px 20px;
 }
 
+/* ---------- Header ---------- */
+
 .profile-header {
     display: flex;
-    align-items: center;
     margin-bottom: 15px;
 }
 
@@ -83,13 +88,15 @@ body {
 .band-name {
     font-size: 30px;
     font-weight: 400;
+    line-height: 40px;
     padding-bottom: 8px;
 }
 
 .location {
     font-size: 14px;
+    line-height: normal;
     border: 2px solid #fff;
-    border-radius: 1.5625rem;
+    border-radius: 25px;
     padding: 8px 15px 8px 10px;
     margin: 5px 0;
     width: fit-content;
@@ -101,45 +108,42 @@ body {
 
 .band-info {
     margin: 10px 0;
+    font-size: 16px;
     opacity: .8;
 }
 
-.video {
+/* ---------- Video + links ---------- */
+
+.profile-links {
+    list-style: none;
     margin-top: 15px;
+}
+
+.profile-links li {
+    margin-bottom: 20px;
+    transition: transform .2s;
+}
+
+.profile-links li:not(.video):hover {
+    transform: scale(1.02);
 }
 
 .video iframe {
     display: block;
     width: 100%;
-    height: 320px;
+    height: 335px;
     border: 0;
-    border-radius: 15px;
-}
-
-.profile-links {
-    list-style: none;
-    margin-top: 23px;
-    display: flex;
-    flex-direction: column;
-    gap: 23px;
-}
-
-.profile-links li {
-    transition: transform .3s;
-}
-
-.profile-links li:hover {
-    transform: scale(1.02);
 }
 
 .link-content {
-    height: 70px;
+    height: 74px;
     display: flex;
     align-items: center;
     border: 2px solid #fff;
     border-radius: 15px;
     box-shadow: 0 7px 10px rgba(50, 50, 93, .1), 0 3px 4px rgba(0, 0, 0, .06);
     color: #fff;
+    font-size: 16px;
     text-decoration: none;
 }
 
@@ -148,21 +152,29 @@ body {
     outline-offset: 3px;
 }
 
+.link-content > span:last-child {
+    padding-right: 15px;
+}
+
 .icon-box {
-    height: 100%;
-    width: 75px;
+    width: 70px;
+    height: 70px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 15px;
     border-right: 1px solid rgba(0, 0, 0, .1);
     margin-right: 15px;
 }
 
 .icon-box > img {
-    height: 55%;
-    width: auto;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
+
+/* ---------- Phones ---------- */
 
 @media (max-width: 550px) {
     .profile-container {
@@ -171,13 +183,14 @@ body {
 
     .profile-header {
         flex-direction: column;
+        align-items: center;
         margin-bottom: 10px;
     }
 
     .profile-image {
         width: 120px;
         height: 120px;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
 
     .profile-info {
@@ -186,7 +199,7 @@ body {
         text-align: center;
     }
 
-    .video {
+    .profile-links {
         margin-top: 10px;
     }
 
