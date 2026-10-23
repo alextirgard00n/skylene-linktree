@@ -1,186 +1,221 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
-* {
-    margin: auto 0;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
     padding: 0;
-    font-family: 'PT Serif', serif;
+}
+
+html,
+body {
+    background-color: #000;
 }
 
 body {
+    color: #fff;
+    font-family: 'PT Serif', serif;
+}
+
+/*
+ * Background, same technique as myurls.co/skylenehi:
+ * the wrapper is at least one screen tall and grows with the content.
+ * A blurred copy of the artwork is stretched across the wrapper's FULL height
+ * (not fixed to the viewport), so it scrolls together with the page.
+ * scale(1.1) pushes the soft blurred edges outside the wrapper, and
+ * overflow: hidden clips them off.
+ */
+.page {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    padding-bottom: 50px; /* same empty strip myurls keeps under the content */
+    background-color: #000;
+}
+
+.page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("media/Background CD 3000.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    filter: blur(16px);
+    opacity: 0.63;
+    transform: scale(1.1);
+}
+
+/* Content area fills the screen minus that strip and centers vertically. */
+.content {
+    position: relative;
+    z-index: 1;
+    min-height: calc(100vh - 50px);
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    width: 100%;
-    position: relative;
-    color: #FFFFFF;
-    background-color: black;
-}
-
-
-body:before {
-    background-image: url(./media/Background\ CD\ 3000.jpg);
-    content: "";
-    background-position: 50%;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    filter: blur(16px);
-    opacity: 0.63;
-    z-index: -1;
-
-    /* help!!!! */
-    transform: scale(1.2);
-}
-
-main {
-    width: 640px;
-
 }
 
 .profile-container {
-    margin: 0 auto;
+    width: 100%;
+    max-width: 640px;
     display: flex;
     flex-direction: column;
     padding: 40px 20px;
-    transition: .5s;
 }
 
-.profile-header {
-    margin-bottom: 15px;
-    display: flex;
+/* ---------- Header ---------- */
 
+.profile-header {
+    display: flex;
+    margin-bottom: 15px;
 }
 
 .profile-image {
+    flex-shrink: 0;
     width: 150px;
     height: 150px;
-    background-image: url(./media/Background\ CD\ 3000.jpg);
+    background-image: url("media/Background CD 3000.jpg");
     background-position: center;
     background-size: 110%;
-    /* background-size: cover; */
     border-radius: 50%;
 }
 
 .profile-info {
-    padding-left: 30px;
     display: flex;
     flex-direction: column;
+    padding-left: 30px;
 }
 
 .band-name {
     font-size: 30px;
+    font-weight: 400;
+    line-height: 40px;
     padding-bottom: 8px;
-}
-
-i {
-    font-size: 14px;
 }
 
 .location {
     font-size: 14px;
-    border: 2px solid #FFFFFF;
-    border-radius: 1.5625rem;
+    line-height: normal;
+    border: 2px solid #fff;
+    border-radius: 25px;
     padding: 8px 15px 8px 10px;
     margin: 5px 0;
     width: fit-content;
 }
 
+.location i {
+    font-size: 14px;
+}
+
 .band-info {
     margin: 10px 0;
+    font-size: 16px;
     opacity: .8;
 }
 
+/* ---------- Video + links ---------- */
+
 .profile-links {
-    margin-top: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 23px;
-}
-
-iframe {
-    border-radius: 15px;
-    width: 100%;
-    height: 320px;
-    transition: .3s;
-}
-
-ul {
     list-style: none;
+    margin-top: 15px;
+}
+
+.profile-links li {
+    margin-bottom: 20px;
+    transition: transform .2s;
+}
+
+.profile-links li:not(.video):hover {
+    transform: scale(1.02);
+}
+
+.video iframe {
+    display: block;
+    width: 100%;
+    height: 335px;
+    border: 0;
 }
 
 .link-content {
-    height: 70px;
-    border: 2px solid #FFFFFF;
+    height: 74px;
+    display: flex;
+    align-items: center;
+    border: 2px solid #fff;
     border-radius: 15px;
     box-shadow: 0 7px 10px rgba(50, 50, 93, .1), 0 3px 4px rgba(0, 0, 0, .06);
-    cursor: pointer;
-    display: flex;
+    color: #fff;
+    font-size: 16px;
     text-decoration: none;
-    color: white;
-    transition: .3s;
 }
 
-li {
-    transition: .3s;
+.link-content:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
 }
 
-.link-content:hover,
-.icon-box:hover,
-.icon-box>img:hover,
-li:hover {
-    transform: scale(102%);
+.link-content > span:last-child {
+    padding-right: 15px;
 }
 
 .icon-box {
-    height: 100%;
-    width: 75px;
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
     display: flex;
+    align-items: center;
     justify-content: center;
+    padding: 15px;
     border-right: 1px solid rgba(0, 0, 0, .1);
     margin-right: 15px;
 }
 
-.icon-box>img {
-    height: 55%;
-    width: auto;
-    /* padding: 15px; */
+.icon-box > img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
 
+/* Stream icon runs a bit larger, like the myurls thumbnail (just under its size) */
+.icon-box > img.icon-lg {
+    width: 52px;
+    height: 52px;
+}
 
+/* ---------- Phones ---------- */
 
 @media (max-width: 550px) {
-
     .profile-container {
-        padding: 20px 20px;
+        padding: 20px;
     }
 
     .profile-header {
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         margin-bottom: 10px;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+    }
+
+    .profile-info {
+        padding-left: 0;
+        align-items: center;
+        text-align: center;
     }
 
     .profile-links {
         margin-top: 10px;
     }
 
-    .profile-image {
-        width: 120px;
-        height: 120px;
-        margin-bottom: 15px;
-    }
-
-    .profile-info {
-        padding-left: 0;
-        align-items: center;
-    }
-
-    iframe {
+    .video iframe {
         height: 250px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .profile-links li {
+        transition: none;
     }
 }

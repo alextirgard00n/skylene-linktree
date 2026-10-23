@@ -3,80 +3,88 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skylene Linktree</title>
-    <link rel="icon" href="media/favicon-skylene.ico" />
+    <title>Skylene | Links</title>
+    <meta name="description" content="Skylene: heavy melodic music from Honolulu, Hawaii. Stream, shop merch, and follow the band.">
+    <meta name="theme-color" content="#000000">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Skylene">
+    <meta property="og:description" content="Heavy melodic music from Hawaii">
+
+    <link rel="icon" href="media/favicon-skylene.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <main>
+    <main class="page">
+        <div class="content">
         <div class="profile-container">
-            <div class="profile-header">
-                <div class="profile-image"></div>
+            <header class="profile-header">
+                <div class="profile-image" role="img" aria-label="Skylene album artwork"></div>
                 <div class="profile-info">
-                    <p class="band-name">S K Y L E N E</p>
-                    <div class="location"><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;Honolulu, HI</div>
-                    <div class="band-info">Heavy Melodic Music from Hawaii</div>
+                    <h1 class="band-name">S K Y L E N E</h1>
+                    <div class="location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>&nbsp;&nbsp;Honolulu, HI</div>
+                    <p class="band-info">Heavy Melodic Music from Hawaii</p>
                 </div>
-            </div>
+            </header>
 
             <ul class="profile-links">
-                <iframe src="https://www.youtube.com/embed/fRKbOQyn438" frameborder="0"></iframe>
-
-
+                <li class="video">
+                    <iframe src="https://www.youtube.com/embed/pOdjOdxmyIE" title="Skylene - Without Regard"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </li>
                 <li>
-                    <a target=”_blank” href="https://open.spotify.com/artist/2Rlhr0EaeREpWAkL9fctT9"
+                    <a target="_blank" rel="noopener noreferrer" href="https://fanlink.tv/withinmyvicinity" class="link-content">
+                        <span class="icon-box"><img class="icon-lg" src="link-icons/stream.svg" alt=""></span>
+                        <span>Stream "Within My Vicinity"</span>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" rel="noopener noreferrer" href="https://open.spotify.com/artist/2Rlhr0EaeREpWAkL9fctT9"
                         class="link-content">
-                        <div class="icon-box">
-                            <img src="./link-icons/spotify.png" alt="">
-                        </div>
+                        <span class="icon-box"><img src="link-icons/spotify.png" alt=""></span>
                         <span>Spotify</span>
                     </a>
                 </li>
                 <li>
-                    <a target=”_blank” href="https://music.apple.com/us/artist/skylene/1457741779" class="link-content">
-                        <div class="icon-box">
-                            <img src="./link-icons/applemusic.png" alt="">
-                        </div>
+                    <a target="_blank" rel="noopener noreferrer" href="https://music.apple.com/us/artist/skylene/1457741779"
+                        class="link-content">
+                        <span class="icon-box"><img src="link-icons/applemusic.png" alt=""></span>
                         <span>Apple Music</span>
                     </a>
                 </li>
                 <li>
-                    <a target=”_blank” href="https://skylene.bandcamp.com/merch" class="link-content">
-                        <div class="icon-box">
-                            <img src="./link-icons/bandcamp.png" alt="">
-                        </div>
+                    <a target="_blank" rel="noopener noreferrer" href="https://skylene.bandcamp.com/merch" class="link-content">
+                        <span class="icon-box"><img src="link-icons/shirt.svg" alt=""></span>
                         <span>Merch Store</span>
                     </a>
                 </li>
                 <li>
-                    <a target=”_blank” href="https://www.instagram.com/skylenehi/" class="link-content">
-                        <div class="icon-box">
-                            <img src="./link-icons/instagram.png" alt="">
-                        </div>
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/skylenehi/" class="link-content">
+                        <span class="icon-box"><img src="link-icons/instagram.png" alt=""></span>
                         <span>Instagram</span>
                     </a>
                 </li>
                 <li>
-                    <a target=”_blank” href="https://www.facebook.com/skyleneHI/" class="link-content">
-                        <div class="icon-box">
-                            <img src="./link-icons/facebook.png" alt="">
-                        </div>
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/skyleneHI/" class="link-content">
+                        <span class="icon-box"><img src="link-icons/facebook.png" alt=""></span>
                         <span>Facebook</span>
                     </a>
                 </li>
                 <li>
-                    <a target=”_blank” href="https://www.bandsintown.com/a/2347195-skylene/" class="link-content">
-                        <div class="icon-box">
-                            <img src="./link-icons/bandsintown.png" alt="">
-                        </div>
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.bandsintown.com/a/2347195-skylene/"
+                        class="link-content">
+                        <span class="icon-box"><img src="link-icons/bandsintown.png" alt=""></span>
                         <span>Bandsintown</span>
                     </a>
                 </li>
             </ul>
-
+        </div>
         </div>
     </main>
 
